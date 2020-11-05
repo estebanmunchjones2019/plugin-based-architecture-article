@@ -656,7 +656,7 @@ This app was developed on top of the [Tour of Heroes] app by Nikos Tsokos -membe
 
 You can download the app from this [gitHub repo](https://github.com/ntsokos/sam-web-component-plugins) and you can watch this [Youtube video](https://www.youtube.com/watch?v=CjbX5r5gvvo&ab_channel=Scotland%27sAngularMeetup) explaining this app in detail:
 
-------------------COMMENT FOR MAX: this feature may not be mobile responsive--------------------------------------------
+------------------COMMENT FOR MAX: the embeded video may not be mobile responsive-------------------------------------------
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CjbX5r5gvvo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
