@@ -10,9 +10,9 @@ Also see an advanced use case by extending the functionality of the [Tour of Her
 
 Table of contents:
 
-[Dealing with a new special feature request](#Dealing-with-a-new-special-feature-request)
+###### [Dealing with a new special feature request](#Dealing-with-a-new-special-feature-request)
 
-[Basics of plugin based architecture using web components](#Basics-of-plugin-based-architecture-using-web-components)
+###### [Basics of plugin based architecture using web components](#Basics-of-plugin-based-architecture-using-web-components)
 
 ​	[What is the code base?](#What-is-the-code-base?])
 
@@ -26,13 +26,13 @@ Table of contents:
 
 ​	[Benefits of adding Web Components outside the code base](#Benefits-of-adding-Web-Components-outside-the-code-base)
 
-[React demo](#React-demo)
+###### [React demo](#React-demo)
 
-[Vue demo](#Vue-demo)
+###### [Vue demo](#Vue-demo)
 
-[Angular demo](#Angular-demo)
+###### [Angular demo](#Angular-demo)
 
-[Digging deeper: An Angular advanced use case demo](#Digging-deeper:-An-Angular-advanced-use-case-demo)
+###### [Digging deeper: An advanced use case in Angular](#Digging-deeper:-An-advanced-use-case-in-Angular)
 
 ​	[App Functionality overview](#App-Functionality-overview)
 
@@ -42,7 +42,9 @@ Table of contents:
 
 
 
-**Note: this article is based on this [Academind's article], that explains what Web Components are, with some demo apps explained and built step by step.**
+**Note 1: this article is based on this [Academind's article], that explains what Web Components are, with some demo apps explained and built step by step.**
+
+**Note 2: if you copy and paste code snippets, it's recommended to avoid including the top comment that tells the name of the file, like `//App.js` or `//index.html`, because they may break your app.**
 
 ## Dealing with a new special feature request
 
@@ -649,7 +651,7 @@ That's it! **our Angular app has successfully implemented a plugin based archite
 
 
 
-## Digging deeper: An Angular advanced use case demo
+## Digging deeper: An advanced use case in Angular
 
 This app was developed on top of the [Tour of Heroes](https://angular.io/tutorial) app by [Nikos Tsokos](https://twitter.com/n_tsokos) -member of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg)  & Sr. Front End Engineer at [Symphonic](https://www.symphonicsoft.com/).-
 
@@ -659,7 +661,7 @@ You can download the app from this [gitHub repo](https://github.com/ntsokos/sam-
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CjbX5r5gvvo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-#### App Functionality overview
+#### App functionality overview
 
 The main difference between this app and the one shown in the [Angular demo](#Angular-demo) is that `CUSTOM_ELEMENT_SCHEMA` in not added in the `schemas` array in `app.module.ts`. Instead, the Web Component is instantiated inside an Angular Component which has an empty template that acts has a host, and uses the `customElements.get()` method, which is a browser API.
 
