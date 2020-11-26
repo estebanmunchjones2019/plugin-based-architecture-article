@@ -651,7 +651,7 @@ That's it! **our Angular app has successfully implemented a plugin based archite
 
 
 
-## Digging deeper - An advanced use case in Angular-
+## Digging deeper - An advanced use case in Angular -
 
 This app was developed on top of the [Tour of Heroes](https://angular.io/tutorial) app by [Nikos Tsokos](https://twitter.com/n_tsokos) -member of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg)  & Sr. Front End Engineer at [Symphonic](https://www.symphonicsoft.com/).-
 
