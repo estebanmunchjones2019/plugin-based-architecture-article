@@ -10,35 +10,35 @@ Also see an advanced use case by extending the functionality of the [Tour of Her
 
 Table of contents:
 
-###### [Dealing with a new special feature request](#Dealing-with-a-new-special-feature-request)
+- ###### [Dealing with a new special feature request](#Dealing-with-a-new-special-feature-request)
 
-###### [Basics of plugin based architecture using web components](#Basics-of-plugin-based-architecture-using-web-components)
+- ###### [Basics of plugin based architecture using web components](#Basics-of-plugin-based-architecture-using-web-components)
 
-​	[What is the code base?](#What-is-the-code-base?])
+  - [What is the code base?](#What-is-the-code-base?])
 
-​	[Isolating the special feature in a Web Component](#Isolating-the-special-feature-in-a-Web-Component)
+  - [Isolating the special feature in a Web Component](#Isolating-the-special-feature-in-a-Web-Component)
 
-​	[Undertanding the app structure](#Undertanding-the-app-structure])
+  - [Undertanding the app structure](#Undertanding-the-app-structure])
 
-​	[Regular clients vs enterprise clients](#Regular-clients-vs-enterprise-clients)	
+  - [Regular clients vs enterprise clients](#Regular-clients-vs-enterprise-clients)	
 
-​	[Where in the code do enterprise clients can make changes?](#Where-in-the-code-do-enterprise-clients-can-make-changes?)
+  - [Where in the code do enterprise clients can make changes?](#Where-in-the-code-do-enterprise-clients-can-make-changes?)
 
-​	[Benefits of adding Web Components outside the code base](#Benefits-of-adding-Web-Components-outside-the-code-base)
+  - [Benefits of adding Web Components outside the code base](#Benefits-of-adding-Web-Components-outside-the-code-base)
 
-###### [React demo](#React-demo)
+- ###### [React demo](#React-demo)
 
-###### [Vue demo](#Vue-demo)
+- ###### [Vue demo](#Vue-demo)
 
-###### [Angular demo](#Angular-demo)
+- ###### [Angular demo](#Angular-demo)
 
-###### [Digging deeper: An advanced use case in Angular](#Digging-deeper:-An-advanced-use-case-in-Angular)
+- ###### [Digging deeper: An advanced use case in Angular](#Digging-deeper:-An-advanced-use-case-in-Angular)
 
-​	[App Functionality overview](#App-Functionality-overview)
+  - [App Functionality overview](#App-Functionality-overview)
 
-​	[App Structure](#App-Structure)
+  - [App Structure](#App-Structure)
 
-​	[Plugin Code](#Plugin-Code)
+  - [Plugin Code](#Plugin-Code)
 
 
 
