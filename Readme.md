@@ -1,8 +1,8 @@
 # Plugin based architecture with Web Components
 
-**What do we do when some enterprise clients want a special feature in their app? Do we add it to the code base?** 
+**What do we do when some enterprise clients want a special feature in their app? Do we add it to the code base and bundle it with Webpack?** 
 
-Lets dive in into the world of _plugin based architectures for enterprise apps using **Web Components**_ and learn how to save time and money when building them with **React, Vue and Angular**.
+Lets dive in into the world of _plugin based architectures for enterprise apps using **Web Components**_ and learn how to save time and money when building them with **React, Vue and Angular** by dynamically importing them into our app, skipping the bundling process.
 
 Also see an advanced use case by extending the functionality of the [Tour of Heroes](https://angular.io/tutorial)  Angular app, implementing an **advanced Web Component integration via a host Angular component**, to display the universe each hero belongs to. A [video](https://www.youtube.com/watch?v=CjbX5r5gvvo&ab_channel=Scotland%27sAngularMeetup) of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg) about this app is included!
 
@@ -44,7 +44,7 @@ Table of contents:
 
 **Note 1: this article is based on this [Academind's article], that explains what Web Components are, with some demo apps explained and built step by step.**
 
-**Note 2: if you copy and paste code snippets, it's recommended to avoid including the top comment that tells the name of the file, like `//App.js` or `//index.html`, because they may break your app.**
+**Note 2: if you copy and paste code snippets, it's recommended to avoid including the top comment that tells the name of the file, like `//App.js` or `//index.html`, because it may break your app.**
 
 ## Dealing with a new special feature request
 
@@ -145,7 +145,7 @@ window.customElements.define('search-result', SearchResult);
 
 
 
-#### Undertanding the app structure
+#### Understanding the app structure
 
 To understand the basics of the plugin based architecture in a more practical way, **lets take a look into a React App folder structure**.  If you don't know about React, don't worry, just look at the colored rectangles and their names. 
 
