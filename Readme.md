@@ -12,19 +12,19 @@ Table of contents:
 
 - ###### [Basics of Plugin based architectures](#basics-of-plugin-based-architectures)
 
-  - [What is the code base?](#what-is-the-code-base?])
+  - [What is the code base?](#what-is-the-code-base])
 
   - [Importing Web Components in an app](#importing-web-components-in-an-app)
 
-  - [What is a plugin architecture then?](#what-is-a-plugin-architecture-then?)
+  - [What is a plugin architecture then?](#what-is-a-plugin-architecture-then)
 
-  - [What are enterprise apps?](#what-are-enterprise-apps?)
+  - [What are enterprise apps?](#what-are-enterprise-apps)
 
-  - [What are the benefits of a plugin based architecture?](#what-are-the-benefits-of-a-plugin-based-architecture?)
+  - [What are the benefits of a plugin based architecture?](#what-are-the-benefits-of-a-plugin-based-architecture)
 
     
 
-- ###### [Lets build an App!](#lets-build-an-app!)
+- ###### [Lets build an App!](#lets-build-an-app)
 
   * [App functionality](#app-functionality)
   * [Creating a Web Component](#creating-a-web-component)
