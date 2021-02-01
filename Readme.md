@@ -45,9 +45,7 @@ Table of contents:
 
 
 
-**Note 1: this article is based on this [Academind's article](https://academind.com/tutorials/web-components-introduction/), that explains what Web Components are, with some demo apps explained and built step by step.**
-
-**Note 2: if you copy and paste code snippets, it's recommended to avoid including the top comment that tells the name of the file, like `//App.js` or `//index.html`, because it may break your app.**
+**Note: this article is based on this [Academind's article](https://academind.com/tutorials/web-components-introduction/), that explains what Web Components are, with some demo apps explained and built step by step.**
 
 
 
@@ -99,7 +97,7 @@ import './path-to-web-component-file';
 The way of importing it is the following:
 
 ```html
-//index.html of a React, Vue or Angular app
+<!--index.html of a React, Vue or Angular app -->
 
 <script src="path-to-web-component-file"></script>
 ```
@@ -117,16 +115,16 @@ There are **4 steps** to implement this type of architecture:
 2) **Import the Web Component in the `index.html` file**:
 
 ````html
-//index.html of a React, Vue or Angular app
+<!-- index.html of a React, Vue or Angular app -->
 
-//import the Web Component
+<!-- import the Web Component -->
 <script src="path-to-web-component-file"></script>
 ````
 
 3) Then, **set a global variable** in the same file, to let the app decide whether the Web Component should be used or not in the app (plugged it or not), enabling the feature it provides:
 
 ````html
-//index.html of a React, Vue or Angular app
+<!--index.html of a React, Vue or Angular app -->
 
 //define a variable that acts like an ON/OFF switch.
 <script>
@@ -296,14 +294,14 @@ The Web Component's code was already shown in the [Creating a Web Component](#cr
 Also, the Web Component must be imported. All the following code must be placed at the end of the `<body>`:
 
 ```html
-//index.html
+<!-- index.html -->
 
-//define the global variable, set to false by default
+<!-- define the global variable, set to false by default -->
 <script>
    window.showSearchResult = false;
 </script>
 
-//import the Web Component
+<!-- import the Web Component -->
 <script src= "%PUBLIC_URL%/web-components/search-result.js"></script>
 
 ```
@@ -349,8 +347,8 @@ export default App;
 
 5) **Modify App.css** by writing this code inside:
 
-```
-//App.css
+```css
+/* App.css */
 
 .App {
   text-align: center;
@@ -412,7 +410,7 @@ Now, the enterprise client that requested the new feature has an app with a swit
 Also try to change the color of the Web Component feature by replacing `green` by `red`:
 
 ````javascript
-//build/index.html
+// build/web-components/search-result.js
 
 template.innerHTML = `
   <style>
@@ -492,14 +490,14 @@ The Web Component's code was already shown in the [Creating a Web Component](#cr
 Also, the Web Component must be imported. All the following code must be placed at the end of the `<body>`:
 
 ```html
-//index.html
+<!-- index.html -->
 
-//define the global variable, set to false by default
+<!-- define the global variable, set to false by default -->
 <script>
    window.showSearchResult = false;
 </script>
 
-//import the Web Component
+<!-- import the Web Component -->
 <script src= "/web-components/search-result.js"></script>
 
 ```
@@ -523,7 +521,7 @@ The `showSearchResult` variable is set to `false` because this is the default se
 
       <div class="greeting">Hello {{ name }}!</div>
       
-	  //check the component variable value to render or not the feature	
+	  <!-- check the component variable value to render or not the feature -->
       <search-result v-if="showSearchResult" v-bind:name-attribute="name"></search-result>
   </div>
 </template>
@@ -664,14 +662,14 @@ The Web Component's code was already shown in the [Creating a Web Component](#cr
 Also, the Web Component must be imported. All the following code must be added at the end of the `<body>`:
 
 ```html
-//index.html
+<!--index.html -->
 
-//define the global variable, set to false by default
+<!-- define the global variable, set to false by default -->
 <script>
   var showSearchResult = false;
 </script>
 
-//import the Web Component
+<!-- import the Web Component -->
 <script src= "assets/web-components/search-result.js"></script>
 ```
 
@@ -707,7 +705,7 @@ export class AppComponent {
 7) **Modify `app.component.html`** to add the logic that checks the `showSearchResult` variable value and renders the Web Component `<search-result>`:
 
 ```html
-//app.component.html
+<!-- app.component.html -->
 
 <div class="App">
       
@@ -718,7 +716,7 @@ export class AppComponent {
 
   <div class="greeting">Hello {{name}}!</div>
     
-  //check the component property value to render or not the feature
+  <!-- check the component property value to render or not the feature -->
   <search-result *ngIf="showSearchResult" [attr.name-attribute]="name"></search-result>
 
 </div>  
@@ -728,8 +726,8 @@ export class AppComponent {
 
 8) **Modify `app.component.css`**:
 
-```bash
-//app.component.css
+```css
+/* app.component.css */
 
 .App {
     text-align: center;
@@ -784,7 +782,7 @@ That's it! **our Angular app has successfully implemented a plugin based archite
 
 ## Digging deeper: an advanced use case in Angular
 
-This app was developed on top of the [Tour of Heroes](https://angular.io/tutorial) app by [Nikos Tsokos](https://twitter.com/n_tsokos) -member of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg)  & Sr. Front End Engineer at [Symphonic](https://www.symphonicsoft.com/).-
+This app was developed on top of the [Tour of Heroes](https://angular.io/tutorial) app by [Nikos Tsokos](https://twitter.com/n_tsokos) -member of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg)  & Sr. Front End Engineer.
 
 You can download the app from this [gitHub repo](https://github.com/ntsokos/sam-web-component-plugins) and you can watch this [Youtube video](https://www.youtube.com/watch?v=CjbX5r5gvvo&ab_channel=Scotland%27sAngularMeetup) explaining this app in detail:
 
@@ -845,7 +843,7 @@ The name of the strings inside the array must match the selector name of the Web
 This way, in a more complex app, many new functionalities could be enabled by passing more strings in the array.
 
 ```html
-//index.html
+<!-- index.html -->
 
 <!doctype html>
 <html lang="en">
@@ -947,7 +945,7 @@ export class HeroPluginHostComponent implements OnChanges {
 Lets look now at `hero-plugin-host.component.css`:
 
 ```css
-//hero-plugin-host.component.css
+/* hero-plugin-host.component.css */
 
 :host {
     display: contents;
@@ -960,10 +958,10 @@ According to [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:ho
 
 `display: contents` causes an element's children to appear as if they were direct children of the element's parent, ignoring the element itself. To find out more visit [this page](https://caniuse.com/css-display-contents#:~:text=display%3A%20contents%20causes%20an%20element's,grid%20or%20similar%20layout%20techniques.).
 
-The Angular host element `<app-hero-plugin-host>` must be used somewhere in an Angular component in order to be rendered on the screen: it's used in `heroes.component.ts`.
+The Angular host element `<app-hero-plugin-host>` must be used somewhere in an Angular component in order to be rendered on the screen: it's used in `heroes.component.html`.
 
 ```html
-//heroes.component.ts
+<!-- heroes.component.html -->
 
 <h2>My Heroes</h2>
 
