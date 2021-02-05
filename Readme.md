@@ -156,7 +156,7 @@ Enterprise apps are software products delivered to companies (clients), and the 
 
 So, the people in charge of hosting these enterprise app **can make changes to the files, enabling features implemented with Web Components**.
 
-On the other hand, apps like [academind.com](https://academind.com/) are considered regular apps, not enterprise ones, because the same app is delivered to everyone who enters to https://academind.com/, and there aren't any other online teaching companies using the same app.
+On the other hand, apps like [academind.com](https://academind.com/) are considered regular aps, not enterprise ones, because the same app is delivered to everyone who enters to https://academind.com/, and there aren't any other online teaching companies using the same one.
 
 
 
