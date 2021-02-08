@@ -2,7 +2,7 @@
 
 **What if we add Web Components to an app and not bundle them?**
 
-Lets dive in into the world of **plugin based architectures** using **Web Components** and learn how to plug them into **React, Vue and Angular** apps by dynamically importing them into our app from outside the code base, not bundling them.
+Let's dive in into the world of **plugin based architectures** using **Web Components** and learn how to plug them into **React, Vue and Angular** apps by dynamically importing them into our app from outside the code base, not bundling them.
 
 Also see an advanced use case by extending the functionality of the [Tour of Heroes](https://angular.io/tutorial)  Angular app, implementing an **advanced Web Component integration via a host Angular component**, to display the universe each hero belongs to. A [video](https://www.youtube.com/watch?v=CjbX5r5gvvo&ab_channel=Scotland%27sAngularMeetup) by [Nikos Tsokos](https://twitter.com/n_tsokos) from [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg) about this app is included in the last section!
 
@@ -10,7 +10,7 @@ Table of contents:
 
 - ###### [Basics of Plugin based architectures](#basics-of-plugin-based-architectures)
   
-  - [What is the code base?](#what-is-the-code-base])
+  - [What is the code base?](#what-is-the-code-base)
   
   - [Importing Web Components in an app](#importing-web-components-in-an-app)
   
@@ -20,7 +20,7 @@ Table of contents:
   
   - [What are the benefits of a plugin based architecture?](#what-are-the-benefits-of-a-plugin-based-architecture)
 
-- ###### [Lets build an App!](#lets-build-an-app)
+- ###### [Let's build an App!](#let's-build-an-app)
   
   * [App functionality](#app-functionality)
   * [Creating a Web Component](#creating-a-web-component)
@@ -39,30 +39,30 @@ Table of contents:
   
   - [Plugin Code](#plugin-code)
 
-**Note: this is a second article in a series about Web Components; the first one is [here](https://academind.com/tutorials/web-components-introduction/) and explains what Web Components are and has some demo apps explained and built step by step.**
+**Note: this is the second article in a series about Web Components; the first one is [here](https://academind.com/tutorials/web-components-introduction/) and explains what Web Components are and has some demo apps explained and built step by step.**
 
 ## Basics of Plugin based architectures
 
 #### What is the code base?
 
-When building apps, there are **parts of the code that are bundled**, becoming part of the code base, and others don't. The name of the folders that are part of the code base will vary with the framework or library you use. Lets take a look the folders in the **development phase** which are considered the be part of the code base:
+When building apps, there are **parts of the code that are bundled**, becoming part of the code base, and others don't. The name of the folders that are part of the code base will vary with the framework or library you use. Let's take a look the folders in the **development phase** which are considered the be part of the code base:
 
-| Framework/library | Code base  | Not code base |
-| ----------------- | ---------- | ------------- |
-| React & Vue       | `/src`     | `/public`     |
-| Angular           | `/src/app` | `/src/assets` |
+| Framework/library | Code base  | Not code base                          |
+| ----------------- | ---------- | -------------------------------------- |
+| React & Vue       | `/src`     | `/public`                              |
+| Angular           | `/src/app` | root level of `/src` and `/src/assets` |
 
 And here, in the **production phase**, these are the parts considered part the code base:
 
 | Framework/library | Code base                 | Not code base                   |
 | ----------------- | ------------------------- | ------------------------------- |
 | React             | `/build/static`           | rest of the folders in `/build` |
-| Vue               | `/dist/css` & `/build/js` | rest of the folders in `/dist`  |
-| Angular           | `/dist`    *              | `/dist/assets`                  |
+| Vue               | `/dist/css` & `/dist/js`  | rest of the folders in `/dist`  |
+| Angular           | `/dist/project-name`    * | `/dist/project-name/assets`     |
 
 *(excluding  `index.html` and `favicon.ico` files,  and `dist/assets`)
 
-By default, **the bundled files have random names**, like `main.fe8a2510.chunk.css` and this is done for the purpose of getting different file names every time we build the app, so the browser doesn't use a cached version of those production files. This way, we avoid been served an old version of the app in the browser.
+By default, **the bundled files have random names**, like `main.fe8a2510.chunk.css` and this is done for the purpose of getting different file names every time we build the app, so the browser doesn't use a old cached version of those production files. This way, we avoid been served an old version of the app in the browser.
 
 A good way of **spotting files that belong to the code base** is by **looking at their names**; if they're random, they're part of it.
 
@@ -70,9 +70,9 @@ A good way of **spotting files that belong to the code base** is by **looking at
 
 When it comes to importing a Web Component in an app, there are two ways of doing it:
 
-1) **Importing the Web Component's `.js` file inside a regular React, Vue or Angular component**, resulting in the Web Component being bundled and **becoming part of the code base**. 
+1) **Importing the Web Component `.js` file inside a regular React, Vue or Angular component**, resulting in the Web Component being bundled and **becoming part of the code base**. 
 
-This approach was used in the [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/) where a Web Component was imported inside a React, Vue and Angular component with the following code:
+This approach was used in the article [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/), where a Web Component was imported inside a React, Vue and Angular component with the following code:
 
 ```javascript
 //Any React,Vue or Angular component
@@ -96,9 +96,9 @@ In a few words, is **implementing a new feature to an app but not making it part
 
 There are **4 steps** to implement this type of architecture:
 
-1) **Add the Web Component outside the code base folder**. This location depends on the framework or library we're using, as we saw in [this section](#what-is-the-code-base?).
+1) **Add the Web Component outside the code base folder**. This location depends on the framework or library we're using, as we saw in [this section](#what-is-the-code-base).
 
-2) **Import the Web Component in the `index.html` file**:
+2) **Import the Web Component in `index.html` file**:
 
 ```html
 <!-- index.html of a React, Vue or Angular app -->
@@ -107,7 +107,7 @@ There are **4 steps** to implement this type of architecture:
 <script src="path-to-web-component-file"></script>
 ```
 
-3) Then, **set a global variable** in the same file, to let the app decide whether the Web Component should be used or not in the app (plugged it or not), enabling the feature it provides:
+3) Then, **set a global variable** in the same file, to let the app decide whether the Web Component should be used or not (plugged it or not), enabling the feature it provides:
 
 ```html
 <!--index.html of a React, Vue or Angular app -->
@@ -121,17 +121,17 @@ There are **4 steps** to implement this type of architecture:
 </script>
 ```
 
-4) Use the global variable and the Web Component inside a React, Vue or Angular component:
+4) **Use the global variable and the Web Component** inside a React, Vue or Angular component:
 
 ```javascript
-//some React, Vue or Angular component
+//any React, Vue or Angular component
 
 //if the global variable is true =>
 //use the web component by using its HTML selector:
 <my-web-component></my-web-component>
 ```
 
-In the code snippet above, some logic needs to be implemented (with an `if()` block or a ternary expression) to check the global variable value, and if it's `true`, use the Web Component HTML selector, to render it to the DOM and display on the screen the feature they provide.
+In the code snippet above, some logic needs to be implemented (with an `if()` block or a ternary expression) to check the global variable value, and if it's `true`, use the Web Component HTML selector, to render it to the DOM and display on the screen the feature it provides.
 
 #### What are enterprise apps?
 
@@ -139,38 +139,36 @@ Enterprise apps are software products delivered to companies (clients), and the 
 
 So, the people in charge of hosting these enterprise app **can make changes to the files, enabling features implemented with Web Components**.
 
-On the other hand, apps like [academind.com](https://academind.com/) are considered regular aps, not enterprise ones, because the same app is delivered to everyone who enters to https://academind.com/, and there aren't any other online teaching companies using the same one.
+On the other hand, apps like [academind.com](https://academind.com/) are not considered an enterprise app, because the same app is delivered to everyone who enters to https://academind.com/, and there aren't any other online teaching companies using the same one.
 
 #### What are the benefits of a plugin based architecture?
 
 The reasons to choose importing the Web Component outside the code base are:
 
-**1) Maintainability**: importing the Web Component outside the source code means that the component is not bundled by Webpack (or any other tool the bundles the code in your app) and hence doesn't become part of the final bundles.
+**1) Decoupling code**: importing the Web Component outside the source code means that the component is not bundled by Webpack (or any other tool the bundles the code in your app).
 
 This means that every time the development team wants to push changes to the app repo regarding the Web Component , this changes won't affect the source code, meaning less hassle for other development teams.
 
-**2) Have a dedicated team of developers** that can work on the Web Component independently of the team working on the code base, because the app is split into two separate units: the code base and the Web Component.
+**2) Easier updates** on [enterprise apps](#what-are-enterprise-apps):  if changes are made to the Web Component, the file containing it is **only** delivered to the clients interested in the feature it provides, and not to **all** clients. All subsequent updates on the Web Component can be pushed to clients without the need of building the app again.
 
-**3) Fewer updates** on [enterprise apps]():  if changes are made to the Web Component, the file containing it is **only** delivered to the clients interested in the feature it provides, and not to **all** clients. 
+## Let's build an app!
 
-## Lets build an app!
+As always, the best way to learn something is by doing, because **the retention rate in your brain is 10% when you are just reading, but 75% when doing it. 😲 **
 
-As always, the best way to learn something is by doing, because **the retention rate in your brain is 10% when you are just reading, but 75% when doing it.** 
+So, let's build the **same app** we built together in the article [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/), but **with the plugin based architecture**,  with the following differences: 
 
-So, lets build the **same app** we built together in [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/) article, but **with the plugin based architecture**,  with the following differences: 
+|                                             | App from [Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/) | New app                                                      |
+| ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Where to place the Web Component `.js` file | Inside the code base                                         | Outside the code base                                        |
+| How to import the Web Component in the app  | Inside a React, Vue or Angular component                     | inside `index.html`                                          |
+| Is a global variable declared?              | No                                                           | Yes, inside `index.html`                                     |
+| Is the Web Component conditionally rendered | No                                                           | Yes, by checking  the global variable inside a React, Vue or Angular component. |
 
-|                                               | [An Introduction to Web Components article's](https://academind.com/tutorials/web-components-introduction/) app | The new app (applying the plugin based architecture)                            |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Where to place the Web Component's `.js` file | Inside the code base                                                                                            | Outside the code base                                                           |
-| How to import the Web Component in the app    | Inside a React, Vue or Angular component                                                                        | inside `index.html`                                                             |
-| Is a global variable declared?                | No                                                                                                              | Yes, inside `index.html`                                                        |
-| Is the Web Component conditionally rendered   | No                                                                                                              | Yes, by checking  the global variable inside a React, Vue or Angular component. |
-
-If you have already read [An Introduction to Web Components's article](https://academind.com/tutorials/web-components-introduction/), feel free to skip this part and focus instead on how the architecture is applied for the [React](#react-demo), [Vue](#vue-demo), and [Angular](#angular-demo) demos.
+If you have already read the article [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/), feel free to skip this part and focus instead on how the architecture is applied for the [React](#react-demo), [Vue](#vue-demo), and [Angular](#angular-demo) demos.
 
 #### App functionality:
 
-Image that we have a simple [enterprise app](#what-are-enterprise-apps) that greets the name we enter in the input form:
+Let's imagine that we have a simple [enterprise app](#what-are-enterprise-apps) that greets the name we enter in the input form:
 
 ![](./images/basic-app.jpg)
 
@@ -184,7 +182,7 @@ When clicking the `here` link, a new tab is opened showing the search result:
 
 #### Creating a Web Component:
 
-Instead of creating another normal a React, Vue or Angular component to contain the new special feature, the feature is added inside a Web Component built with Vanilla JavaScript. The code for the special feature requested is the following one, and will live in a `.js` file that we can name `search-result.js`:
+Instead of creating another normal React, Vue or Angular component to contain the new special feature, the feature is added inside a Web Component built with Vanilla JavaScript. The code for the special feature requested is the following one, and will live in a `.js` file that we can name `search-result.js`:
 
 ```javascript
 //search-result.js
@@ -234,11 +232,11 @@ class SearchResult extends HTMLElement {
 window.customElements.define('search-result', SearchResult);
 ```
 
-**Note: for the sake of keeping this article short, any polyfills to support Web Components will be added to the following React, Vue and Angular apps, but if you are interested in adding them, read  [An Introduction to Web Components's article](https://academind.com/tutorials/web-components-introduction/).**
+**Note: for the sake of keeping this article short, no polyfills to support Web Components will be added to the following React, Vue and Angular apps, but if you are interested in adding them, read the article [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/).**
 
 ## React Demo
 
-The final React app can be found in this [gitHub repo](https://github.com/estebanmunchjones2019/react-web-components-plugin). Lets see how to build it by following these steps:
+The final React app can be found in this [gitHub repo](https://github.com/estebanmunchjones2019/react-web-components-plugin). Let's see how to build it by following these steps:
 
 1) **Create a React project** by entering the following commands in your terminal, one at a time, to create a project called `react-web-components`:
 
@@ -248,11 +246,11 @@ cd react-web-components
 npm start
 ```
 
-2) **Create the Web Component** containing the special feature that shows the Google search result link, in a file that we can name `search-result.js` inside a folder called  `web-components` that we have to create **inside `/public`**. So, the component will live in `/public/web-components/search-result.js`.
+2) **Create the Web Component** containing the special feature that shows the Google search result link, in a file that we can name `search-result.js` inside a folder called `web-components` that we have to create **inside `/public`**. So, the component will live in `/public/web-components/search-result.js`.
 
 The Web Component's code was already shown in the [Creating a Web Component](#creating-a-web-component) section, if you wanna copy and paste it.
 
-3) **Modify `index.html`** by setting a global variable called `showSearchResult`  inside the `window` object, that lets the app decide whether to use or not the Web Component. 
+3) **Modify `index.html`** by setting a global variable called `showSearchResult` inside the `window` object, that lets the app decide whether to use or not the Web Component. 
 
 Also, the Web Component must be imported. All the following code must be placed at the end of the `<body>`:
 
@@ -270,7 +268,7 @@ Also, the Web Component must be imported. All the following code must be placed 
 
 The `showSearchResult` variable is set to `false` because this is the default setup for **most** users. The idea is that the enterprise client who asked for the special feature enables it, and the rest of the clients keep using the app as it is.
 
-4) **Modify `App.js`** to add the logic that checks the `showSearchResult`  variable value and renders the Web Component `<search-result>`:
+4) **Modify `App.js`** to add the logic that checks the `showSearchResult` variable value and renders the Web Component `<search-result>`:
 
 ```javascript
 //App.js
@@ -318,7 +316,7 @@ export default App;
 }
 ```
 
-6) **Verify the app is working** by entering this command:
+6) **Verify that the app is working** by entering this command:
 
 ```bash
 npm start
@@ -336,7 +334,7 @@ npm run build
 
 8) **Serve the build:**
 
-We're gonna use the `http-server` server, so lets install it globally by running this:
+We're gonna use the `http-server` server, so let's install it globally by running this:
 
 ```bash
 npm i -g htttp-server
@@ -383,21 +381,21 @@ That's it! **our React app has successfully implemented a plugin based architect
 
 #### Understanding the app structure
 
-Before we dive into the Vue app, lets understand the app structure in development and production of the React version.
+Before we dive into the Vue app, let's understand the app structure in development and production of the React version.
 
 This first image shows the `/public` and `/src` folders of the project which contain **development files**, where you coded or pasted the code of the previous snippets.
 
 ![](./images/architecture-1.jpg)
 
-Lets now see the files inside `/build`, which contains the **production files**, which are generated after running `npm run build`, and delivered to enterprise clients as a software product.
+Let's now see the files inside `/build`, containing the **production files**, which are generated after running `npm run build`, and delivered to enterprise clients as a software product.
 
 ![](./images/architecture-2.jpg)
 
-**The `/build` folder contains the files that are delivered to enterprise clients**; when running the scripts for building the production files from the development ones, using the default [Webpack](https://webpack.js.org/) config,  the content of `/public` is copied and pasted untouched at the root level of `/build`, but the content of `/src` is bundled with [Webpack](https://webpack.js.org/), and put inside `/build/static`. To know more about the public folder used in React, read this [docs](https://create-react-app.dev/docs/using-the-public-folder/#:~:text=If%20you%20put%20a%20file,not%20be%20processed%20by%20webpack.&text=Only%20files%20inside%20the%20public,a%20part%20of%20the%20build) from [create-react-app.dev](https://create-react-app.dev).
+When running the scripts for building the production files from the development ones, using the default [Webpack](https://webpack.js.org/) config, the content of `/public` is copied and pasted untouched at the root level of `/build`, but the content of `/src` is bundled with [Webpack](https://webpack.js.org/), and put inside `/build/static`. To know more about the public folder used in React, read this [docs](https://create-react-app.dev/docs/using-the-public-folder/#:~:text=If%20you%20put%20a%20file,not%20be%20processed%20by%20webpack.&text=Only%20files%20inside%20the%20public,a%20part%20of%20the%20build) from [create-react-app.dev](https://create-react-app.dev).
 
 ## Vue demo
 
-Lets follow the same steps, but for a Vue app now. The final app can be found in this [gitHub repo](https://github.com/estebanmunchjones2019/vue-web-components-plugin).
+Let's follow the same steps, but for a Vue app now. The final app can be found in this [gitHub repo](https://github.com/estebanmunchjones2019/vue-web-components-plugin).
 
 1) **Install the Vue CLI globally:**
 
@@ -441,7 +439,7 @@ Also, the Web Component must be imported. All the following code must be placed 
 
 The `showSearchResult` variable is set to `false` because this is the default setup for **most** users. 
 
-5) **Modify `App.js`** to assign the global variable to a component's variable and add the logic that checks the latter variable's value and renders the Web Component `<search-result>`:
+5) **Modify `App.js`** to assign the global variable to a component variable and add the logic that checks the value of latter variable and renders the Web Component `<search-result>`:
 
 ```vue
 //App.vue
@@ -518,7 +516,7 @@ That's it! **our Vue app has successfully implemented a plugin based architectur
 
 ## Angular demo
 
-Lets follow the same steps as above, but for an Angular app now. The final app can be found in this [gitHub repo](https://github.com/estebanmunchjones2019/angular-web-components-plugin).
+Let's follow the same steps as above, but for an Angular app now. The final app can be found in this [gitHub repo](https://github.com/estebanmunchjones2019/angular-web-components-plugin).
 
 1) **Install the Angular CLI globally:**
 
@@ -532,7 +530,7 @@ If you get an error telling you that there aren't permissions to access certain 
 
 2) **Create a new Angular project:**
 
-Still in the terminal, run this commands (one at a time) to create a project called `angular-web-components`; feel free to choose other name as well.
+Still in the terminal, run these commands (one at a time) to create a project called `angular-web-components`; feel free to choose other name as well.
 
 ```bash
 ng new angular-web-components
@@ -540,7 +538,7 @@ cd angular-web-components
 ng serve
 ```
 
-3) Enable the use of Web Components, by adding a `schemas` property inside the `@NgModule` config in `app.module.ts`, and pass it an array with the `CUSTOM_ELEMENTS_SCHEMA` const. This allows Angular to understand the HTML Web Component selector, because it's a non-Angular component.
+3) ****Enable the use of Web Components****, by adding a `schemas` property inside the `@NgModule` config in `app.module.ts`, and pass it an array with the `CUSTOM_ELEMENTS_SCHEMA` constant. This allows Angular to understand the HTML Web Component selector, because it's a non-Angular component.
 
 ```typescript
 //app.module.ts
@@ -680,7 +678,7 @@ That's it! **our Angular app has successfully implemented a plugin based archite
 
 ## Digging deeper: an advanced use case in Angular
 
-This app was developed on top of the [Tour of Heroes](https://angular.io/tutorial) app by [Nikos Tsokos](https://twitter.com/n_tsokos) -member of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg)  & Sr. Front End Engineer.
+This app was developed on top of the [Tour of Heroes](https://angular.io/tutorial) app by [Nikos Tsokos](https://twitter.com/n_tsokos) -member of [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg)  & Sr. Front-end Engineer.
 
 You can download the app from this [gitHub repo](https://github.com/ntsokos/sam-web-component-plugins) and you can watch this [Youtube video](https://www.youtube.com/watch?v=CjbX5r5gvvo&ab_channel=Scotland%27sAngularMeetup) explaining this app in detail:
 
@@ -692,13 +690,13 @@ You can download the app from this [gitHub repo](https://github.com/ntsokos/sam-
 
 The main difference between this app and the one shown in the [Angular demo](#angular-demo) is that `CUSTOM_ELEMENT_SCHEMA` in not added in the `schemas` array in `app.module.ts`. Instead, the **Web Component is instantiated inside an Angular Component which has an empty template that acts has a host**, and uses the `customElements.get()` method, which is a browser API.
 
-Lets understand how the plugin is gonna affect the view, by looking at the app on the screen. In this case, the app has the plugin enabled by default. 
+Let's understand how the plugin is gonna affect the view, by looking at the app on the screen. In this case, the app has the plugin enabled by default. 
 
 In the main view, if we click on `heroes`:
 
 ![](./images/tour-1.jpg)
 
-Now, we can add a new hero. Lets add `Hulk`:
+Now, we can add a new hero. Let's add `Hulk`:
 
 ![](./images/tour-2.jpg)
 
@@ -712,13 +710,13 @@ That label is a special feature that not **all** users might want, and can be en
 
 Inside `src/app`, there's a folder called `hero-plugin-host` that contains a file `hero-plugin-host.component.ts` with an Angular component inside, which is in charge of instantiating and rendering the Web Component on the screen.
 
-Outside the code base, inside `/assets`, there's a file called `hero-inverse-indicator.js` that contains a Web Component, that can be used in the app if a global variable inside `index.html` is properly set.
+Outside the code base, inside `src/assets`, there's a file called `hero-inverse-indicator.js` that contains a Web Component, that can be used in the app if a global variable inside `index.html` is properly set.
 
 ![](./images/tour-4.jpg)
 
 #### Plugin code
 
-Now, it's time to dive deeper into the code, and see how this plugin works. Lets start by looking at the code inside`/src/index.html`, where a global variable called `heroPlugins` is defined.
+Now, it's time to dive deeper into the code, and see how this plugin works. Let's start by looking at the code inside`/src/index.html`, where a global variable called `heroPlugins` is defined.
 
 The name of the strings inside the array must match the selector name of the Web Components we wanna use in the app: as we only have one Web Component with a selector of `hero-universe-indicator`, a string with the same value is passed into the array. 
 
@@ -819,7 +817,7 @@ export class HeroPluginHostComponent implements OnChanges {
 }
 ```
 
-Lets look now at `hero-plugin-host.component.css`:
+Let's look now at `hero-plugin-host.component.css`:
 
 ```css
 /* hero-plugin-host.component.css */
@@ -829,7 +827,7 @@ Lets look now at `hero-plugin-host.component.css`:
 }
 ```
 
-According to [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:host), the **`:host`** [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) selects the shadow host of the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) containing the CSS it is used inside — in other words, this **allows you to select a custom element from inside its shadow DOM.**
+According to [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:host), the **`:host`** [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) selects the shadow host of the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) containing the CSS that's used inside — in other words, this **allows you to select a custom element from inside its shadow DOM.**
 
 `display: contents` causes an element's children to appear as if they were direct children of the element's parent, ignoring the element itself. To find out more visit [this page](https://caniuse.com/css-display-contents#:~:text=display%3A%20contents%20causes%20an%20element's,grid%20or%20similar%20layout%20techniques.).
 
@@ -864,7 +862,7 @@ The Angular host element `<app-hero-plugin-host>` must be used somewhere in an A
 </ul>
 ```
 
-The Web Component is located inside `/assests/hero-universe-indicator.js`: 
+The Web Component is located inside `src/assests/hero-universe-indicator.js`: 
 
 ```javascript
 //hero-universe-indicator.js
