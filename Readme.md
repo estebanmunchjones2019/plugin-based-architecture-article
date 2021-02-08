@@ -2,7 +2,7 @@
 
 **What if we add Web Components to an app and not bundle them?**
 
-Lets dive in into the world of **plugin based architectures** using **Web Components** and learn how to plug them into **React, Vue and Angular** apps by dynamically importing them in our app from outside the code base, not bundling them.
+Lets dive in into the world of **plugin based architectures** using **Web Components** and learn how to plug them into **React, Vue and Angular** apps by dynamically importing them into our app from outside the code base, not bundling them.
 
 Also see an advanced use case by extending the functionality of the [Tour of Heroes](https://angular.io/tutorial)  Angular app, implementing an **advanced Web Component integration via a host Angular component**, to display the universe each hero belongs to. A [video](https://www.youtube.com/watch?v=CjbX5r5gvvo&ab_channel=Scotland%27sAngularMeetup) by [Nikos Tsokos](https://twitter.com/n_tsokos) from [Scotland's Angular Meetup](https://www.youtube.com/channel/UCWIfQn9vUayDkzrrDIjdAjg) about this app is included in the last section!
 
@@ -42,10 +42,10 @@ Table of contents:
   - [App Structure](#app-structure)
 
   - [Plugin Code](#plugin-code)
+  
+    
 
-
-
-**Note: this article is based on this [Academind's article](https://academind.com/tutorials/web-components-introduction/), that explains what Web Components are, with some demo apps explained and built step by step.**
+**Note: this is a second article in a series about Web Components; the first one is [here](https://academind.com/tutorials/web-components-introduction/) and explains what Web Components are and has some demo apps explained and built step by step.**
 
 
 
@@ -53,12 +53,12 @@ Table of contents:
 
 #### What is the code base?
 
-When building apps, there are parts of the code that are bundled, becoming part of the code base, and others don't. The name of the folders that are part of the code base will vary with the framework or library you use. Lets take a look at what folders in the **development phase** are considered the be part of the code base:
+When building apps, there are **parts of the code that are bundled**, becoming part of the code base, and others don't. The name of the folders that are part of the code base will vary with the framework or library you use. Lets take a look at what folders in the **development phase** are considered the be part of the code base:
 
-| Framework/library | Code base            | Not code base |
-| ----------------- | -------------------- | ------------- |
-| React & Vue       | root level of `/src` | `/public`     |
-| Angular           | `/src/app`           | `/src/assets` |
+| Framework/library | Code base  | Not code base |
+| ----------------- | ---------- | ------------- |
+| React & Vue       | `/src`     | `/public`     |
+| Angular           | `/src/app` | `/src/assets` |
 
 And here, in the **production phase**, these are the parts to be considered part the code base:
 
