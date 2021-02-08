@@ -153,7 +153,7 @@ This means that every time the development team wants to push changes to the app
 
 ## Let's build an app!
 
-As always, the best way to learn something is by doing, because **the retention rate in your brain is 10% when you are just reading, but 75% when doing it. 😲 **
+As always, the best way to learn something is by doing, because **the retention rate in your brain is 10% when you are just reading, but 75% when doing it.** 😲 
 
 So, let's build the **same app** we built together in the article [An Introduction to Web Components](https://academind.com/tutorials/web-components-introduction/), but **with the plugin based architecture**,  with the following differences: 
 
